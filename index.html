@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onesmus Makau | Portfolio</title>
+    <title>Onesmus Musembi | Business Information Technologist</title>
     
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -16,11 +16,11 @@
     <style>
         /* --- CORE VARIABLES --- */
         :root {
-            --bg-body: #050505;       /* Deepest Black */
-            --bg-card: #121212;       /* Dark Grey for cards */
+            --bg-body: #050505;       
+            --bg-card: #121212;       
             --accent: #ff5e14;        /* Vibrant Orange */
-            --text-main: #ffffff;     /* Pure White for Headings */
-            --text-body: #e0e0e0;     /* Light Grey for reading text (High Visibility) */
+            --text-main: #ffffff;     
+            --text-body: #e0e0e0;     
         }
 
         /* --- GLOBAL RESETS --- */
@@ -46,7 +46,7 @@
 
         /* --- NAVBAR --- */
         .navbar {
-            background: rgba(0, 0, 0, 0.95); /* Solid black background for readability */
+            background: rgba(0, 0, 0, 0.95);
             padding: 1rem 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
@@ -58,7 +58,7 @@
         }
         .text-orange { color: var(--accent) !important; }
         .nav-link {
-            color: #ffffff !important; /* Force white navigation links */
+            color: #ffffff !important;
             font-weight: 500;
             margin-left: 1rem;
             transition: 0.3s;
@@ -86,11 +86,11 @@
             height: 100vh;
             display: flex;
             align-items: center;
-            /* Darker overlay (0.85) to ensure text is visible on any image */
+            /* Update 'My_portfolio1.jpg' to your actual background image name */
             background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), url('My_portfolio1.jpg');
             background-size: cover;
             background-position: center;
-            margin-top: -76px; /* Pull behind navbar */
+            margin-top: -76px;
         }
         .hero h4 { 
             font-size: 1.5rem; 
@@ -99,14 +99,14 @@
             margin-bottom: 10px;
         }
         .hero h1 { 
-            font-size: 4.5rem; 
+            font-size: 4rem; 
             font-weight: 800; 
             line-height: 1.1;
             margin-bottom: 20px;
         }
         .hero-desc { 
-            color: #d1d1d1; /* Very light grey */
-            font-size: 1.25rem; 
+            color: #d1d1d1;
+            font-size: 1.2rem; 
             max-width: 700px; 
             margin-bottom: 30px;
         }
@@ -135,7 +135,6 @@
         .about-img {
             width: 100%;
             border-radius: 15px;
-            /* Filter removed to make image clear */
         }
 
         .info-item {
@@ -169,15 +168,49 @@
             transform: translateY(-10px);
             border-color: var(--accent);
             background: #1a1a1a;
-            box-shadow: 0 10px 30px rgba(255, 94, 20, 0.1);
         }
         .service-icon {
             font-size: 3rem;
             color: var(--accent);
             margin-bottom: 25px;
         }
-        .service-box h4 { margin-bottom: 15px; color: white; }
-        .service-box p { color: #cccccc; } /* High contrast grey */
+
+        /* --- PORTFOLIO/WORK SECTION --- */
+        .project-card {
+            background: #1a1a1a;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
+            height: 100%;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        /* Placeholder for project image */
+        .project-img-placeholder {
+            height: 200px;
+            background: #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-size: 3rem;
+        }
+        .project-content { padding: 25px; }
+        .project-content h5 { font-weight: 700; color: white; margin-bottom: 10px; }
+        .project-content p { font-size: 0.9rem; color: #b0b0b0; margin-bottom: 20px; }
+        .btn-project {
+            padding: 8px 20px;
+            font-size: 0.85rem;
+            border-radius: 30px;
+            background: #333;
+            color: white;
+            transition: 0.3s;
+        }
+        .btn-project:hover { background: var(--accent); color: white; }
 
         /* --- CONTACT FORM --- */
         .contact-wrapper {
@@ -187,16 +220,14 @@
             border: 1px solid rgba(255,255,255,0.05);
         }
         .form-control {
-            background: #222; /* Lighter background for inputs */
-            border: 1px solid #444; /* Visible border */
+            background: #222;
+            border: 1px solid #444;
             color: white;
             padding: 15px;
             margin-bottom: 20px;
             font-size: 1rem;
         }
-        .form-control::placeholder {
-            color: #888; /* Visible placeholder text */
-        }
+        .form-control::placeholder { color: #888; }
         .form-control:focus {
             background: #2a2a2a;
             border-color: var(--accent);
@@ -246,10 +277,9 @@
 
         /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
+            .hero h1 { font-size: 2.5rem; }
             .hero-desc { font-size: 1.1rem; }
             .section-padding { padding: 60px 0; }
-            .contact-wrapper { padding: 30px 20px; }
         }
     </style>
 </head>
@@ -258,7 +288,7 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">ONESMUS<span class="text-orange">.</span></a>
+            <a class="navbar-brand" href="#">MUSEMBI<span class="text-orange">.</span></a>
             <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -266,6 +296,7 @@
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                     <li class="nav-item"><a class="nav-link btn-hire" href="#contact">Contact Me</a></li>
                 </ul>
@@ -278,13 +309,13 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-9">
-                    <h4 class="animate-text">Hello, I'm</h4>
-                    <h1>Onesmus Makau</h1>
+                    <h4>Hello, I'm</h4>
+                    <h1>Onesmus Musembi</h1>
                     <p class="hero-desc">
-                        I am a <strong>Graduate of Dedan Kimathi University of Technology</strong> and a passionate Web Developer & Machine Learning Enthusiast.
+                        A Results-driven <strong>Business Information Technologist</strong> and Developer with solid operational knowledge in networking, project management, and software solutions.
                     </p>
                     <div class="mt-4">
-                        <a href="#about" class="btn btn-submit" style="width: auto; padding: 12px 30px; margin-right: 10px;">View My Work</a>
+                        <a href="#portfolio" class="btn btn-submit" style="width: auto; padding: 12px 30px; margin-right: 10px;">View My Work</a>
                         <a href="#contact" class="btn btn-outline-light px-4 py-3 fw-bold">Hire Me</a>
                     </div>
                 </div>
@@ -299,41 +330,40 @@
                 <!-- Image Column -->
                 <div class="col-lg-5 mb-5 mb-lg-0">
                     <div class="about-image-container">
-                        <!-- Ensure My_Portfolio.jpg is in the folder -->
-                        <img src="My_Portfolio.jpg" alt="Onesmus Makau" class="about-img">
+                        <!-- Ensure your photo matches this filename -->
+                        <img src="My_Portfolio.jpg" alt="Onesmus Musembi" class="about-img">
                     </div>
                 </div>
                 <!-- Text Column -->
                 <div class="col-lg-7 ps-lg-5">
                     <span class="section-subtitle">Who I Am</span>
                     <h2 class="mb-4">About Me</h2>
-                    <p>I have 1.5 years of experience in web development and software solutions. I am a driven freelancer capable of building modern web applications.</p>
+                    <p>I am a Business Information Technology graduate from <strong>Dedan Kimathi University of Technology (Dec 2024)</strong>. I am a professional communicator capable of adapting to diverse environments.</p>
                     
-                    <!-- Updated Degree Information -->
-                    <p class="mb-4" style="color: white; border-left: 3px solid var(--accent); padding-left: 15px;">
-                        I recently graduated with a <strong>Bachelor of Business and Information Technology (BBIT)</strong> from Dedan Kimathi University of Technology. I also hold a certificate from NVIDIA in Machine Learning concepts.
+                    <p class="mb-4">
+                        Recently, I completed an internship at <strong>Kalimoni Mission Hospital</strong>, where I managed Hospital Information Systems (HMIS), monitored Network Administration (LAN/Wi-Fi), and provided User Training. I also hold a Second Class Honours degree and certifications in Cisco Networking.
                     </p>
                     
-                    <div class="row mt-4">
+                    <div class="row mt-4 mb-4">
                         <div class="col-md-6">
                             <div class="info-item">
                                 <i class="fa fa-user text-orange mb-2"></i>
                                 <strong>Name</strong>
-                                <span>Onesmus Makau</span>
+                                <span>Onesmus Musembi</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="info-item">
                                 <i class="fa fa-graduation-cap text-orange mb-2"></i>
-                                <strong>Education</strong>
-                                <span>BBIT Graduate (DeKUT)</span>
+                                <strong>Degree</strong>
+                                <span>B.Sc. Business Info Tech</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="info-item">
                                 <i class="fa fa-briefcase text-orange mb-2"></i>
                                 <strong>Experience</strong>
-                                <span>1.5+ Years / Freelance</span>
+                                <span>Freelance & Hospital IT</span>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -344,7 +374,70 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- RESUME BUTTON: Ensure your PDF is named 'resume.pdf' -->
+                    <a href="resume.pdf" target="_blank" class="btn btn-hire">
+                        <i class="fa fa-download me-2"></i> Download Resume
+                    </a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section id="portfolio" class="section-padding" style="background-color: #0b0b0b;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-subtitle">Recent Works</span>
+                <h2>My Portfolio</h2>
+            </div>
+            <div class="row g-4">
+                
+                <!-- Project 1: Personal OS -->
+                <div class="col-md-4">
+                    <div class="project-card">
+                        <!-- Use an image named 'project1.jpg' or keep this placeholder icon -->
+                        <div class="project-img-placeholder">
+                            <i class="fa fa-laptop-code"></i>
+                        </div>
+                        <div class="project-content">
+                            <h5>Personal OS / Task Note</h5>
+                            <p>A personal operating system project designed for task management and note-taking efficiency.</p>
+                            <a href="https://my-task-note.netlify.app" target="_blank" class="btn btn-project">
+                                View Live <i class="fa fa-external-link-alt ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Farmers App (From Resume) -->
+                <div class="col-md-4">
+                    <div class="project-card">
+                        <div class="project-img-placeholder">
+                            <i class="fa fa-leaf"></i>
+                        </div>
+                        <div class="project-content">
+                            <h5>Farmers App</h5>
+                            <p>An application utilizing business strategies to streamline sales and communication for local farmers.</p>
+                            <a href="#" class="btn btn-project">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Hospital Maintenance (From Resume) -->
+                <div class="col-md-4">
+                    <div class="project-card">
+                        <div class="project-img-placeholder">
+                            <i class="fa fa-hospital"></i>
+                        </div>
+                        <div class="project-content">
+                            <h5>Hospital IT Management</h5>
+                            <p>Managed HMIS systems, network administration, and hardware maintenance at Kalimoni Mission Hospital.</p>
+                            <a href="#" class="btn btn-project">Read Case Study</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -360,22 +453,22 @@
                 <div class="col-md-4">
                     <div class="service-box text-center">
                         <i class="fa fa-code service-icon"></i>
-                        <h4>Web Development</h4>
-                        <p>Building responsive websites for shopping, gaming centers, and educational libraries tailored to specific user needs.</p>
+                        <h4>Software Development</h4>
+                        <p>Utilizing coding skills to create applications that streamline business operations and communication.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="service-box text-center">
-                        <i class="fa fa-layer-group service-icon"></i>
-                        <h4>Web Design</h4>
-                        <p>Designing modern, user-friendly interfaces for schools and companies with a strong focus on UX/UI principles.</p>
+                        <i class="fa fa-server service-icon"></i>
+                        <h4>Network Administration</h4>
+                        <p>Monitoring LAN/Wi-Fi, troubleshooting downtime, and optimizing signal strength (Cisco trained).</p>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="service-box text-center">
-                        <i class="fa fa-mobile-screen service-icon"></i>
-                        <h4>App Development</h4>
-                        <p>Developing functional applications for grading, record keeping, and student management systems.</p>
+                        <i class="fa fa-tools service-icon"></i>
+                        <h4>System Maintenance</h4>
+                        <p>Hardware repairs, software updates, and user training to ensure digital literacy and reduce errors.</p>
                     </div>
                 </div>
             </div>
@@ -392,12 +485,12 @@
                         <h2>Contact Me</h2>
                     </div>
 
-                    <!-- SUCCESS ALERT (Hidden by default) -->
+                    <!-- SUCCESS ALERT -->
                     <div id="success-alert" class="alert alert-success d-none text-center">
                         <i class="fa fa-check-circle me-2"></i> Message sent successfully! I'll reply soon.
                     </div>
                     
-                    <!-- ERROR ALERT (Hidden by default) -->
+                    <!-- ERROR ALERT -->
                     <div id="error-alert" class="alert alert-danger d-none text-center">
                         <i class="fa fa-exclamation-circle me-2"></i> Something went wrong. Please try again.
                     </div>
@@ -405,8 +498,6 @@
                     <div class="contact-wrapper">
                         <!-- AJAX FORM -->
                         <form id="contactForm" action="https://formsubmit.co/makaumusembi3@gmail.com" method="POST">
-                            
-                            <!-- Hidden Configuration -->
                             <input type="hidden" name="_captcha" value="false">
                             <input type="hidden" name="_template" value="table">
 
@@ -441,7 +532,7 @@
                 <a href="https://www.linkedin.com/in/onesmus-musembi-b16705288" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                 <a href="https://api.whatsapp.com/send/?phone=254725097312" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
             </div>
-            <p class="text-secondary mb-0">&copy; 2026 Onesmus Makau. All Rights Reserved.</p>
+            <p class="text-secondary mb-0">&copy; 2026 Onesmus Musembi. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -456,9 +547,8 @@
         const submitBtn = document.getElementById('submitBtn');
 
         form.addEventListener('submit', function(e) {
-            e.preventDefault(); // Stop the browser from leaving the page
+            e.preventDefault(); 
 
-            // Show loading state
             const originalText = submitBtn.innerHTML;
             submitBtn.innerHTML = 'Sending...';
             submitBtn.disabled = true;
@@ -473,8 +563,8 @@
             .then(response => {
                 if (response.ok) {
                     successAlert.classList.remove('d-none');
-                    form.reset(); // Clear the form
-                    setTimeout(() => successAlert.classList.add('d-none'), 5000); // Hide after 5s
+                    form.reset(); 
+                    setTimeout(() => successAlert.classList.add('d-none'), 5000); 
                 } else {
                     errorAlert.classList.remove('d-none');
                 }
