@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Onesmus Musembi | Business Information Technologist</title>
     
-    <!-- Favicon (Place a favicon.png in your folder, otherwise this is ignored) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon1.png">
 
     <!-- Bootstrap 5 CSS -->
@@ -55,7 +55,7 @@
         /* --- NAVBAR --- */
         .navbar {
             background: rgba(0, 0, 0, 0.95);
-            padding: 1rem 0;
+            padding: 0.8rem 0; /* Adjusted padding for larger logo */
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             transition: 0.3s;
         }
@@ -65,6 +65,19 @@
             color: white !important;
             letter-spacing: 1px;
         }
+        
+        /* LOGO STYLING FIX */
+        .logo-img {
+            height: 60px; /* Increased size */
+            width: 60px;  /* Ensure it stays a perfect circle */
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 50%;
+            border: 2px solid var(--accent); /* Orange border for visibility */
+            padding: 2px; /* Small gap between border and image */
+            background-color: rgba(255,255,255,0.05); /* Slight light background to help contrast */
+        }
+
         .text-orange { color: var(--accent) !important; }
         .nav-link {
             color: #ffffff !important;
@@ -113,9 +126,8 @@
             font-weight: 600;
             color: var(--accent);
             margin-bottom: 20px;
-            min-height: 40px; /* Prevents layout shift while typing */
+            min-height: 40px; 
         }
-        /* Cursor for typing effect */
         .typed-cursor { color: var(--text-main); font-size: 1.8rem; }
         
         .hero-desc { 
@@ -214,7 +226,6 @@
             border-color: var(--accent);
         }
         
-        /* Handles both Real Images and Placeholders */
         .project-img-wrapper {
             height: 220px;
             overflow: hidden;
@@ -322,6 +333,8 @@
             .hero-subtitle { font-size: 1.2rem; }
             .section-padding { padding: 60px 0; }
             .tech-icon { font-size: 2.5rem; margin: 0 10px; }
+            /* Adjust logo size for mobile */
+            .logo-img { height: 50px; width: 50px; }
         }
     </style>
 </head>
@@ -331,8 +344,8 @@
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <!-- Adjust height if it's too big/small -->
-                <img src="favicon1.png" alt="Logo" style="height: 40px; margin-right: 10px;"> 
+                <!-- Updated Logo Styling Class applied here -->
+                <img src="favicon1.png" alt="Logo" class="logo-img"> 
                 <span>MUSEMBI<span class="text-orange">.</span></span>
             </a>
             <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
