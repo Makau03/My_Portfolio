@@ -5,14 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Onesmus Musembi | Business Information Technologist</title>
     
-    <!-- Bootstrap 5 -->
+    <!-- Favicon (Place a favicon.png in your folder, otherwise this is ignored) -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
 
-    <!-- INTERNAL CSS (Styles) -->
+    <!-- AOS Animation Library CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- INTERNAL CSS -->
     <style>
         /* --- CORE VARIABLES --- */
         :root {
@@ -49,6 +57,7 @@
             background: rgba(0, 0, 0, 0.95);
             padding: 1rem 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.3s;
         }
         .navbar-brand {
             font-weight: 800;
@@ -63,7 +72,8 @@
             margin-left: 1rem;
             transition: 0.3s;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
         }
         .nav-link:hover { color: var(--accent) !important; }
         
@@ -74,6 +84,7 @@
             padding: 0.5rem 1.5rem !important;
             border-radius: 50px;
             font-weight: 600;
+            transition: 0.3s;
         }
         .btn-hire:hover {
             background: var(--accent);
@@ -86,28 +97,31 @@
             height: 100vh;
             display: flex;
             align-items: center;
-            /* Update 'My_portfolio1.jpg' to your actual background image name */
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)), url('My_portfolio1.jpg');
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.95)), url('My_portfolio1.jpg');
             background-size: cover;
             background-position: center;
             margin-top: -76px;
-        }
-        .hero h4 { 
-            font-size: 1.5rem; 
-            color: var(--accent); 
-            font-weight: 600; 
-            margin-bottom: 10px;
         }
         .hero h1 { 
             font-size: 4rem; 
             font-weight: 800; 
             line-height: 1.1;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
+        .hero-subtitle {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 20px;
+            min-height: 40px; /* Prevents layout shift while typing */
+        }
+        /* Cursor for typing effect */
+        .typed-cursor { color: var(--text-main); font-size: 1.8rem; }
+        
         .hero-desc { 
             color: #d1d1d1;
             font-size: 1.2rem; 
-            max-width: 700px; 
+            max-width: 650px; 
             margin-bottom: 30px;
         }
 
@@ -131,7 +145,9 @@
             padding: 10px;
             border: 2px solid rgba(255,255,255,0.1);
             border-radius: 20px;
+            transition: 0.3s;
         }
+        .about-image-container:hover { border-color: var(--accent); }
         .about-img {
             width: 100%;
             border-radius: 15px;
@@ -144,15 +160,22 @@
             border-left: 4px solid var(--accent);
             margin-bottom: 20px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
         }
-        .info-item strong {
-            display: block;
-            color: white;
-            font-size: 1.1rem;
+        .info-item:hover { transform: translateX(5px); }
+        .info-item strong { display: block; color: white; font-size: 1.1rem; }
+        .info-item span { color: #bbbbbb; font-size: 0.95rem; }
+
+        /* --- TECH STACK ICONS --- */
+        .tech-icon {
+            font-size: 3.5rem;
+            color: #444;
+            transition: all 0.3s ease;
+            margin: 0 15px;
         }
-        .info-item span {
-            color: #bbbbbb;
-            font-size: 0.95rem;
+        .tech-icon:hover {
+            color: var(--accent);
+            transform: scale(1.2) translateY(-10px);
         }
 
         /* --- SERVICES CARDS --- */
@@ -168,6 +191,7 @@
             transform: translateY(-10px);
             border-color: var(--accent);
             background: #1a1a1a;
+            box-shadow: 0 10px 30px rgba(255, 94, 20, 0.15);
         }
         .service-icon {
             font-size: 3rem;
@@ -175,7 +199,7 @@
             margin-bottom: 25px;
         }
 
-        /* --- PORTFOLIO/WORK SECTION --- */
+        /* --- PORTFOLIO SECTION --- */
         .project-card {
             background: #1a1a1a;
             border-radius: 15px;
@@ -183,25 +207,41 @@
             border: 1px solid rgba(255,255,255,0.05);
             transition: 0.3s;
             height: 100%;
+            position: relative;
         }
         .project-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-        /* Placeholder for project image */
-        .project-img-placeholder {
-            height: 200px;
+        
+        /* Handles both Real Images and Placeholders */
+        .project-img-wrapper {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
             background: #2a2a2a;
+        }
+        .project-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .project-card:hover .project-img-wrapper img { transform: scale(1.1); }
+        
+        .placeholder-icon {
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #555;
+            height: 100%;
             font-size: 3rem;
+            color: #555;
         }
+
         .project-content { padding: 25px; }
         .project-content h5 { font-weight: 700; color: white; margin-bottom: 10px; }
         .project-content p { font-size: 0.9rem; color: #b0b0b0; margin-bottom: 20px; }
+        
         .btn-project {
             padding: 8px 20px;
             font-size: 0.85rem;
@@ -209,6 +249,7 @@
             background: #333;
             color: white;
             transition: 0.3s;
+            display: inline-block;
         }
         .btn-project:hover { background: var(--accent); color: white; }
 
@@ -253,7 +294,7 @@
         /* --- FOOTER --- */
         footer { 
             background: #000; 
-            padding: 40px 0; 
+            padding: 50px 0; 
             border-top: 1px solid rgba(255,255,255,0.1); 
         }
         .social-link {
@@ -278,8 +319,9 @@
         /* --- MOBILE RESPONSIVE --- */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            .hero-desc { font-size: 1.1rem; }
+            .hero-subtitle { font-size: 1.2rem; }
             .section-padding { padding: 60px 0; }
+            .tech-icon { font-size: 2.5rem; margin: 0 10px; }
         }
     </style>
 </head>
@@ -308,11 +350,16 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-9">
-                    <h4>Hello, I'm</h4>
+                <div class="col-lg-9" data-aos="fade-up" data-aos-duration="1000">
+                    <h5 class="text-white mb-3">Hello, I am</h5>
                     <h1>Onesmus Musembi</h1>
+                    <!-- Typing Effect Container -->
+                    <div class="hero-subtitle">
+                        I am a <span class="typewriter"></span>
+                    </div>
+                    
                     <p class="hero-desc">
-                        A Results-driven <strong>Business Information Technologist</strong> and Developer with solid operational knowledge in networking, project management, and software solutions.
+                        A Results-driven <strong>Business Information Technologist</strong> with solid operational knowledge in networking, project management, and software solutions.
                     </p>
                     <div class="mt-4">
                         <a href="#portfolio" class="btn btn-submit" style="width: auto; padding: 12px 30px; margin-right: 10px;">View My Work</a>
@@ -328,20 +375,20 @@
         <div class="container">
             <div class="row align-items-center">
                 <!-- Image Column -->
-                <div class="col-lg-5 mb-5 mb-lg-0">
+                <div class="col-lg-5 mb-5 mb-lg-0" data-aos="fade-right">
                     <div class="about-image-container">
                         <!-- Ensure your photo matches this filename -->
-                        <img src="My_Portfolio1.jpg" alt="Onesmus Musembi" class="about-img">
+                        <img src="My_Portfolio.jpg" alt="Onesmus Musembi" class="about-img">
                     </div>
                 </div>
                 <!-- Text Column -->
-                <div class="col-lg-7 ps-lg-5">
+                <div class="col-lg-7 ps-lg-5" data-aos="fade-left">
                     <span class="section-subtitle">Who I Am</span>
                     <h2 class="mb-4">About Me</h2>
                     <p>I am a Business Information Technology graduate from <strong>Dedan Kimathi University of Technology (Dec 2024)</strong>. I am a professional communicator capable of adapting to diverse environments.</p>
                     
                     <p class="mb-4">
-                        Recently, I completed an internship at <strong>Kalimoni Mission Hospital</strong>, where I managed Hospital Information Systems (HMIS), monitored Network Administration (LAN/Wi-Fi), and provided User Training. I also hold a Second Class Honours degree and certifications in Cisco Networking.
+                        Recently, I completed an internship at <strong>Kalimoni Mission Hospital</strong>, where I managed Hospital Information Systems (HMIS), monitored Network Administration (LAN/Wi-Fi), and provided User Training. I also hold certifications in <strong>Cisco Networking</strong>.
                     </p>
                     
                     <div class="row mt-4 mb-4">
@@ -375,7 +422,7 @@
                         </div>
                     </div>
 
-                    <!-- RESUME BUTTON: Ensure your PDF is named 'resume.pdf' -->
+                    <!-- RESUME BUTTON -->
                     <a href="resume.pdf" target="_blank" class="btn btn-hire">
                         <i class="fa fa-download me-2"></i> Download Resume
                     </a>
@@ -384,25 +431,44 @@
         </div>
     </section>
 
+    <!-- TECH STACK SECTION (VISUALS) -->
+    <section class="container mb-5" data-aos="fade-up">
+        <div class="row justify-content-center text-center">
+            <div class="col-12">
+                <span class="section-subtitle mb-4">Technologies I Use</span>
+                <div class="d-flex justify-content-center flex-wrap gap-3 mt-3">
+                    <i class="fab fa-html5 tech-icon" title="HTML5"></i>
+                    <i class="fab fa-css3-alt tech-icon" title="CSS3"></i>
+                    <i class="fab fa-js tech-icon" title="JavaScript"></i>
+                    <i class="fab fa-python tech-icon" title="Python"></i>
+                    <i class="fab fa-bootstrap tech-icon" title="Bootstrap"></i>
+                    <i class="fas fa-database tech-icon" title="Database Management"></i>
+                    <i class="fas fa-network-wired tech-icon" title="Cisco Networking"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- PORTFOLIO SECTION -->
     <section id="portfolio" class="section-padding" style="background-color: #0b0b0b;">
         <div class="container">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5" data-aos="fade-up">
                 <span class="section-subtitle">Recent Works</span>
                 <h2>My Portfolio</h2>
             </div>
             <div class="row g-4">
                 
                 <!-- Project 1: Personal OS -->
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-card">
-                        <!-- Use an image named 'project1.jpg' or keep this placeholder icon -->
-                        <div class="project-img-placeholder">
-                            <i class="fa fa-laptop-code"></i>
+                        <div class="project-img-wrapper">
+                            <!-- If you have an image, remove the i tag and use: <img src="project1.jpg"> -->
+                            <img src="project1.jpg" alt="Personal OS" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <div class="placeholder-icon" style="display:none;"><i class="fa fa-laptop-code"></i></div>
                         </div>
                         <div class="project-content">
                             <h5>Personal OS / Task Note</h5>
-                            <p>A personal operating system project designed for task management and note-taking efficiency.</p>
+                            <p>A personal operating system project designed for task management and note-taking efficiency. Hosted on Netlify.</p>
                             <a href="https://my-task-note.netlify.app" target="_blank" class="btn btn-project">
                                 View Live <i class="fa fa-external-link-alt ms-1"></i>
                             </a>
@@ -410,11 +476,12 @@
                     </div>
                 </div>
 
-                <!-- Project 2: Farmers App (From Resume) -->
-                <div class="col-md-4">
+                <!-- Project 2: Farmers App -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-card">
-                        <div class="project-img-placeholder">
-                            <i class="fa fa-leaf"></i>
+                        <div class="project-img-wrapper">
+                            <!-- Placeholder logic -->
+                            <div class="placeholder-icon"><i class="fa fa-leaf"></i></div>
                         </div>
                         <div class="project-content">
                             <h5>Farmers App</h5>
@@ -424,11 +491,12 @@
                     </div>
                 </div>
 
-                <!-- Project 3: Hospital Maintenance (From Resume) -->
-                <div class="col-md-4">
+                <!-- Project 3: Hospital IT -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="project-card">
-                        <div class="project-img-placeholder">
-                            <i class="fa fa-hospital"></i>
+                        <div class="project-img-wrapper">
+                            <!-- Placeholder logic -->
+                            <div class="placeholder-icon"><i class="fa fa-hospital"></i></div>
                         </div>
                         <div class="project-content">
                             <h5>Hospital IT Management</h5>
@@ -445,26 +513,26 @@
     <!-- SERVICES SECTION -->
     <section id="services" class="section-padding">
         <div class="container">
-            <div class="text-center mb-5">
+            <div class="text-center mb-5" data-aos="fade-up">
                 <span class="section-subtitle">What I Offer</span>
                 <h2>My Services</h2>
             </div>
             <div class="row g-4">
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-box text-center">
                         <i class="fa fa-code service-icon"></i>
                         <h4>Software Development</h4>
                         <p>Utilizing coding skills to create applications that streamline business operations and communication.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-box text-center">
                         <i class="fa fa-server service-icon"></i>
                         <h4>Network Administration</h4>
                         <p>Monitoring LAN/Wi-Fi, troubleshooting downtime, and optimizing signal strength (Cisco trained).</p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-box text-center">
                         <i class="fa fa-tools service-icon"></i>
                         <h4>System Maintenance</h4>
@@ -479,7 +547,7 @@
     <section id="contact" class="section-padding">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-8" data-aos="zoom-in">
                     <div class="text-center mb-5">
                         <span class="section-subtitle">Get In Touch</span>
                         <h2>Contact Me</h2>
@@ -539,8 +607,35 @@
     <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- JAVASCRIPT TO HANDLE FORM WITHOUT REDIRECT -->
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Typed.js for Typing Effect -->
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+    <!-- MAIN JAVASCRIPT -->
     <script>
+        // 1. Initialize AOS (Scroll Animation)
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // 2. Initialize Typed.js (Typing Effect)
+        var typed = new Typed('.typewriter', {
+            strings: [
+                'Web Developer', 
+                'Network Administrator', 
+                'System Analyst', 
+                'Tech Enthusiast'
+            ],
+            typeSpeed: 50,
+            backSpeed: 50,
+            loop: true
+        });
+
+        // 3. Handle Contact Form (Stay on page)
         const form = document.getElementById('contactForm');
         const successAlert = document.getElementById('success-alert');
         const errorAlert = document.getElementById('error-alert');
