@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Onesmus Makau | Web Developer</title>
     
-    <!-- Bootstrap CSS (Makes it responsive/professional) -->
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome (For Icons) -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="#home">My Portfolio</a>
+            <a class="navbar-brand" href="#home">ONESMUS<span class="dot">.</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -28,7 +28,7 @@
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-orange ms-2" href="#contact">Contact Me</a></li>
+                    <li class="nav-item"><a class="nav-link btn-contact" href="#contact">Contact Me</a></li>
                 </ul>
             </div>
         </div>
@@ -37,39 +37,53 @@
     <!-- Hero Section -->
     <section class="hero-section d-flex align-items-center" id="home">
         <div class="overlay"></div>
-        <div class="container text-center position-relative text-white">
-            <h1 class="display-3 fw-bold">Hello, I'm <span class="text-orange">Onesmus Makau</span></h1>
-            <p class="lead fst-italic">Student at Dedan Kimathi University of Technology | Aspiring Web Developer</p>
-            <a href="#about" class="btn btn-outline-light mt-3 px-4">View My Work</a>
+        <div class="container text-center position-relative text-white fade-in-up">
+            <h4 class="sub-title">Hello, I am</h4>
+            <h1 class="display-2 fw-bold name-gradient">Onesmus Makau</h1>
+            <p class="lead hero-desc">Web Developer | ML Enthusiast | Student</p>
+            <div class="mt-4">
+                <a href="#about" class="btn btn-outline-light btn-lg px-4 me-2">My Work</a>
+                <a href="#contact" class="btn btn-primary-custom btn-lg px-4">Hire Me</a>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section-padding">
+    <section id="about" class="section-padding bg-darker">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-5 text-center">
-                    <!-- Replace with your actual image file name -->
-                    <img src="My_Portfolio.jpg" alt="Onesmus Makau" class="img-fluid rounded shadow-lg about-img">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <div class="image-wrapper">
+                        <!-- Make sure this image exists -->
+                        <img src="My_Portfolio.jpg" alt="Onesmus Makau" class="img-fluid rounded-3 about-img">
+                    </div>
                 </div>
-                <div class="col-lg-7 mt-4 mt-lg-0">
-                    <h2 class="section-title">About Me</h2>
-                    <p class="lead">I have 1.5 years of experience in web development and machine learning concepts.</p>
-                    <p>I am a freelancer working on various projects involving web and application development. I have acquired diverse skills studying at Dedan Kimathi University of Technology and can easily adapt to any working environment.</p>
-                    <p>I hold a certificate from NVIDIA in machine learning and aim to further develop my knowledge in AI and Web Technologies.</p>
+                <div class="col-lg-7 text-white">
+                    <h6 class="text-orange text-uppercase">Who I am</h6>
+                    <h2 class="section-title mb-4">About Me</h2>
+                    <p class="text-gray">I have 1.5 years of experience in web development and machine learning concepts. I am a freelancer passionate about building digital solutions that solve real-world problems.</p>
+                    <p class="text-gray">I hold a certificate from NVIDIA in machine learning and I am currently studying at Dedan Kimathi University of Technology.</p>
                     
                     <div class="row mt-4">
-                        <div class="col-md-6">
-                            <ul class="list-unstyled info-list">
-                                <li><strong>Name:</strong> Onesmus Makau</li>
-                                <li><strong>Age:</strong> 19</li>
-                            </ul>
+                        <div class="col-md-6 mb-3">
+                            <div class="info-box">
+                                <i class="fa fa-user text-orange me-2"></i> <span>Onesmus Makau</span>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <ul class="list-unstyled info-list">
-                                <li><strong>Occupation:</strong> Student / Freelancer</li>
-                                <li><strong>Location:</strong> Nyeri, Kenya</li>
-                            </ul>
+                        <div class="col-md-6 mb-3">
+                            <div class="info-box">
+                                <i class="fa fa-graduation-cap text-orange me-2"></i> <span>Student / Freelancer</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="info-box">
+                                <i class="fa fa-map-marker-alt text-orange me-2"></i> <span>Nyeri, Kenya</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="info-box">
+                                <i class="fa fa-envelope text-orange me-2"></i> <span>makaumusembi3@gmail.com</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -78,41 +92,41 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="section-padding bg-light">
+    <section id="services" class="section-padding bg-dark">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="section-title">My Services</h2>
-                <p>What I can do for you</p>
+                <h6 class="text-orange text-uppercase">What I Offer</h6>
+                <h2 class="section-title text-white">My Services</h2>
             </div>
             <div class="row g-4">
                 <!-- Service 1 -->
                 <div class="col-md-4">
-                    <div class="card service-card h-100">
-                        <div class="card-body text-center">
-                            <i class="fa fa-code fa-3x text-orange mb-3"></i>
-                            <h4 class="card-title">Website Development</h4>
-                            <p class="card-text">Developed websites for online shopping, gaming centers, and a student online library useful during the COVID period.</p>
+                    <div class="service-card text-center">
+                        <div class="icon-box mb-3">
+                            <i class="fa fa-code"></i>
                         </div>
+                        <h4 class="text-white">Web Development</h4>
+                        <p class="text-gray">Custom websites for e-commerce, gaming centers, and educational libraries tailored to specific needs.</p>
                     </div>
                 </div>
                 <!-- Service 2 -->
                 <div class="col-md-4">
-                    <div class="card service-card h-100">
-                        <div class="card-body text-center">
-                            <i class="fa fa-paint-brush fa-3x text-orange mb-3"></i>
-                            <h4 class="card-title">Website Design</h4>
-                            <p class="card-text">Created designs for two companies and four schools, focusing on user experience and modern UI layouts.</p>
+                    <div class="service-card text-center">
+                        <div class="icon-box mb-3">
+                            <i class="fa fa-palette"></i>
                         </div>
+                        <h4 class="text-white">Web Design</h4>
+                        <p class="text-gray">Modern, user-friendly designs that focus on UI/UX best practices for companies and schools.</p>
                     </div>
                 </div>
                 <!-- Service 3 -->
                 <div class="col-md-4">
-                    <div class="card service-card h-100">
-                        <div class="card-body text-center">
-                            <i class="fa fa-mobile fa-3x text-orange mb-3"></i>
-                            <h4 class="card-title">App Development</h4>
-                            <p class="card-text">Developed a school application that incorporates grading functions and student record management.</p>
+                    <div class="service-card text-center">
+                        <div class="icon-box mb-3">
+                            <i class="fa fa-mobile-alt"></i>
                         </div>
+                        <h4 class="text-white">App Development</h4>
+                        <p class="text-gray">Functional applications for grading systems, data management, and student records.</p>
                     </div>
                 </div>
             </div>
@@ -120,44 +134,43 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section-padding">
+    <section id="contact" class="section-padding bg-darker">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">Contact Me</h2>
-                <p>Have a project? Let's talk.</p>
-            </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <!-- FormSubmit Configuration -->
-                    <form action="https://formsubmit.co/makaumusembi3@gmail.com" method="POST" class="p-4 shadow rounded bg-white border">
+                    <div class="text-center mb-5">
+                        <h6 class="text-orange text-uppercase">Get in Touch</h6>
+                        <h2 class="section-title text-white">Contact Me</h2>
+                    </div>
+
+                    <!-- Notification Area -->
+                    <div id="form-message" class="alert d-none text-center" role="alert"></div>
+
+                    <!-- Contact Form -->
+                    <form id="contactForm" action="https://formsubmit.co/makaumusembi3@gmail.com" method="POST" class="contact-form p-4">
                         
-                        <!-- Honeypot (Spam Protection) -->
-                        <input type="text" name="_honey" style="display:none">
-                        <!-- Disable Captcha (Optional) -->
+                        <!-- FormSubmit Configuration -->
                         <input type="hidden" name="_captcha" value="false">
-                        <!-- Success Page Redirect (Optional - stays on page if removed) -->
-                        <input type="hidden" name="_next" value="">
+                        <input type="hidden" name="_template" value="table">
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">Name</label>
-                                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                                <input type="text" name="name" class="form-control custom-input" placeholder="Your Name" required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">Email</label>
-                                <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                                <input type="email" name="email" class="form-control custom-input" placeholder="Your Email" required>
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Subject</label>
-                            <input type="text" name="subject" class="form-control" placeholder="Project Subject" required>
+                            <input type="text" name="subject" class="form-control custom-input" placeholder="Subject" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Message</label>
-                            <textarea name="message" class="form-control" rows="5" placeholder="Project Details" required></textarea>
+                            <textarea name="message" class="form-control custom-input" rows="5" placeholder="Project Details" required></textarea>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-orange btn-lg px-5">Send Message</button>
+                            <button type="submit" id="submitBtn" class="btn btn-primary-custom px-5 py-2">
+                                Send Message <i class="fa fa-paper-plane ms-2"></i>
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -166,18 +179,72 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer-custom py-4 text-center">
+    <footer class="footer py-4 text-center bg-black">
         <div class="container">
-            <div class="social-icons mb-3">
-                <a href="https://www.instagram.com/onesmus8897/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/onesmus-musembi-b16705288" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://api.whatsapp.com/send/?phone=254725097312" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <div class="social-icons mb-4">
+                <a href="https://www.instagram.com/onesmus8897/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/onesmus-musembi-b16705288" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://api.whatsapp.com/send/?phone=254725097312" target="_blank"><i class="fab fa-whatsapp"></i></a>
             </div>
-            <p class="text-white mb-0">&copy; 2024 Onesmus Makau. All Rights Reserved.</p>
+            <p class="text-gray mb-0">&copy; 2024 Onesmus Makau. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- Bootstrap JS Script -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Javascript for Form Handling -->
+    <script>
+        const form = document.getElementById('contactForm');
+        const messageDiv = document.getElementById('form-message');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop page reload
+
+            // Change button text
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = 'Sending...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Success
+                    messageDiv.classList.remove('d-none', 'alert-danger');
+                    messageDiv.classList.add('alert-success');
+                    messageDiv.innerHTML = 'Message sent successfully! I will get back to you soon.';
+                    form.reset();
+                } else {
+                    // Error from server
+                    throw new Error('Server error');
+                }
+            })
+            .catch(error => {
+                // Network error
+                messageDiv.classList.remove('d-none', 'alert-success');
+                messageDiv.classList.add('alert-danger');
+                messageDiv.innerHTML = 'Oops! Something went wrong. Please try again later or contact me on WhatsApp.';
+            })
+            .finally(() => {
+                // Reset button
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    messageDiv.classList.add('d-none');
+                }, 8000);
+            });
+        });
+    </script>
 </body>
 </html>
