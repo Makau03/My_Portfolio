@@ -3,86 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onesmus Makau | Web Developer</title>
+    <title>Onesmus Makau | Portfolio</title>
     
-    <!-- Bootstrap 5 CSS -->
+    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+
+    <!-- INTERNAL CSS (Styles) -->
+    <style>
+        /* --- CORE VARIABLES --- */
+        :root {
+            --bg-body: #0a0a0a;       /* Deepest Black */
+            --bg-card: #161616;       /* Dark Grey for cards */
+            --accent: #ff5e14;        /* Vibrant Orange */
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+        }
+
+        /* --- GLOBAL RESETS --- */
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 { font-family: 'Montserrat', sans-serif; }
+        a { text-decoration: none; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-body); }
+        ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
+
+        /* --- NAVBAR --- */
+        .navbar {
+            background: rgba(10, 10, 10, 0.9); /* See-through dark glass */
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white !important;
+        }
+        .text-orange { color: var(--accent) !important; }
+        .nav-link {
+            color: #ccc !important;
+            margin-left: 1rem;
+            transition: 0.3s;
+        }
+        .nav-link:hover { color: var(--accent) !important; }
+        .btn-hire {
+            border: 1px solid var(--accent);
+            color: var(--accent) !important;
+            padding: 0.5rem 1.5rem !important;
+            border-radius: 50px;
+        }
+        .btn-hire:hover {
+            background: var(--accent);
+            color: white !important;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            /* Overlay gradient on top of your image */
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('My_portfolio1.jpg');
+            background-size: cover;
+            background-position: center;
+            margin-top: -76px; /* Pull behind navbar */
+        }
+        .hero h4 { font-size: 1.5rem; color: var(--accent); font-weight: 300; }
+        .hero h1 { 
+            font-size: 4rem; 
+            font-weight: 800; 
+            background: -webkit-linear-gradient(#fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-desc { color: var(--text-muted); font-size: 1.2rem; max-width: 600px; }
+
+        /* --- ABOUT SECTION --- */
+        .section-padding { padding: 100px 0; }
+        
+        .about-image-container {
+            position: relative;
+            z-index: 1;
+        }
+        .about-img {
+            width: 100%;
+            max-width: 400px; /* Limits size so it's not huge */
+            border-radius: 15px;
+            box-shadow: 20px 20px 0 var(--accent); /* Orange shadow block */
+            transition: transform 0.3s;
+        }
+        .about-img:hover { transform: translate(-5px, -5px); }
+
+        .info-item {
+            background: var(--bg-card);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+            margin-bottom: 15px;
+        }
+
+        /* --- SERVICES CARDS --- */
+        .service-box {
+            background: var(--bg-card);
+            padding: 40px 30px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
+            height: 100%;
+        }
+        .service-box:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            background: #1f1f1f;
+        }
+        .service-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        /* --- CONTACT FORM --- */
+        .contact-wrapper {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .form-control {
+            background: #252525;
+            border: 1px solid #333;
+            color: white;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .form-control:focus {
+            background: #303030;
+            border-color: var(--accent);
+            color: white;
+            box-shadow: none;
+        }
+        .btn-submit {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .btn-submit:hover {
+            background: #e04b0b;
+            transform: scale(1.05);
+        }
+
+        /* --- FOOTER --- */
+        footer { background: black; padding: 30px 0; margin-top: 50px; }
+        .social-link {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+        .social-link:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* --- MOBILE TWEAKS --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .about-img { box-shadow: 10px 10px 0 var(--accent); margin-bottom: 30px; }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#home">ONESMUS<span class="dot">.</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <a class="navbar-brand" href="#">ONESMUS<span class="text-orange">.</span></a>
+            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link btn-contact" href="#contact">Contact Me</a></li>
+                    <li class="nav-item"><a class="nav-link btn-hire" href="#contact">Contact Me</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section d-flex align-items-center" id="home">
-        <div class="overlay"></div>
-        <div class="container text-center position-relative text-white fade-in-up">
-            <h4 class="sub-title">Hello, I am</h4>
-            <h1 class="display-2 fw-bold name-gradient">Onesmus Makau</h1>
-            <p class="lead hero-desc">Web Developer | ML Enthusiast | Student</p>
-            <div class="mt-4">
-                <a href="#about" class="btn btn-outline-light btn-lg px-4 me-2">My Work</a>
-                <a href="#contact" class="btn btn-primary-custom btn-lg px-4">Hire Me</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section-padding bg-darker">
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-5 mb-4 mb-lg-0">
-                    <div class="image-wrapper">
-                        <!-- Make sure this image exists -->
-                        <img src="My_Portfolio.jpg" alt="Onesmus Makau" class="img-fluid rounded-3 about-img">
+                <div class="col-lg-8">
+                    <h4>Hello, I'm</h4>
+                    <h1>Onesmus Makau</h1>
+                    <p class="hero-desc">I am a Student at Dedan Kimathi University and a passionate Web Developer & Machine Learning Enthusiast.</p>
+                    <div class="mt-4">
+                        <a href="#about" class="btn btn-submit me-3">My Work</a>
+                        <a href="#contact" class="btn btn-outline-light px-4 py-2">Hire Me</a>
                     </div>
                 </div>
-                <div class="col-lg-7 text-white">
-                    <h6 class="text-orange text-uppercase">Who I am</h6>
-                    <h2 class="section-title mb-4">About Me</h2>
-                    <p class="text-gray">I have 1.5 years of experience in web development and machine learning concepts. I am a freelancer passionate about building digital solutions that solve real-world problems.</p>
-                    <p class="text-gray">I hold a certificate from NVIDIA in machine learning and I am currently studying at Dedan Kimathi University of Technology.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Image Column -->
+                <div class="col-lg-5 text-center">
+                    <div class="about-image-container">
+                        <img src="My_Portfolio.jpg" alt="Onesmus Makau" class="about-img">
+                    </div>
+                </div>
+                <!-- Text Column -->
+                <div class="col-lg-7 mt-4 mt-lg-0">
+                    <h5 class="text-orange text-uppercase">Who Am I?</h5>
+                    <h2 class="mb-4">About Me</h2>
+                    <p class="text-muted">I have 1.5 years of experience in web development. I am a freelancer capable of building modern web applications and have an NVIDIA certificate in Machine Learning concepts.</p>
                     
                     <div class="row mt-4">
-                        <div class="col-md-6 mb-3">
-                            <div class="info-box">
-                                <i class="fa fa-user text-orange me-2"></i> <span>Onesmus Makau</span>
+                        <div class="col-md-6">
+                            <div class="info-item">
+                                <i class="fa fa-user text-orange me-2"></i> Onesmus Makau
                             </div>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="info-box">
-                                <i class="fa fa-graduation-cap text-orange me-2"></i> <span>Student / Freelancer</span>
+                        <div class="col-md-6">
+                            <div class="info-item">
+                                <i class="fa fa-briefcase text-orange me-2"></i> Freelance Dev
                             </div>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="info-box">
-                                <i class="fa fa-map-marker-alt text-orange me-2"></i> <span>Nyeri, Kenya</span>
+                        <div class="col-md-6">
+                            <div class="info-item">
+                                <i class="fa fa-graduation-cap text-orange me-2"></i> DKUT Student
                             </div>
                         </div>
-                        <div class="col-md-6 mb-3">
-                            <div class="info-box">
-                                <i class="fa fa-envelope text-orange me-2"></i> <span>makaumusembi3@gmail.com</span>
+                        <div class="col-md-6">
+                            <div class="info-item">
+                                <i class="fa fa-envelope text-orange me-2"></i> makaumusembi3@gmail.com
                             </div>
                         </div>
                     </div>
@@ -91,119 +276,117 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="section-padding bg-dark">
+    <!-- SERVICES SECTION -->
+    <section id="services" class="section-padding">
         <div class="container">
             <div class="text-center mb-5">
-                <h6 class="text-orange text-uppercase">What I Offer</h6>
-                <h2 class="section-title text-white">My Services</h2>
+                <h5 class="text-orange">WHAT I DO</h5>
+                <h2>My Services</h2>
             </div>
             <div class="row g-4">
-                <!-- Service 1 -->
                 <div class="col-md-4">
-                    <div class="service-card text-center">
-                        <div class="icon-box mb-3">
-                            <i class="fa fa-code"></i>
-                        </div>
-                        <h4 class="text-white">Web Development</h4>
-                        <p class="text-gray">Custom websites for e-commerce, gaming centers, and educational libraries tailored to specific needs.</p>
+                    <div class="service-box text-center">
+                        <i class="fa fa-code service-icon"></i>
+                        <h4>Web Development</h4>
+                        <p class="text-muted">Building responsive websites for shopping, gaming, and educational libraries tailored to student needs.</p>
                     </div>
                 </div>
-                <!-- Service 2 -->
                 <div class="col-md-4">
-                    <div class="service-card text-center">
-                        <div class="icon-box mb-3">
-                            <i class="fa fa-palette"></i>
-                        </div>
-                        <h4 class="text-white">Web Design</h4>
-                        <p class="text-gray">Modern, user-friendly designs that focus on UI/UX best practices for companies and schools.</p>
+                    <div class="service-box text-center">
+                        <i class="fa fa-paint-brush service-icon"></i>
+                        <h4>Web Design</h4>
+                        <p class="text-muted">Designing modern, user-friendly interfaces for schools and companies with a focus on UX.</p>
                     </div>
                 </div>
-                <!-- Service 3 -->
                 <div class="col-md-4">
-                    <div class="service-card text-center">
-                        <div class="icon-box mb-3">
-                            <i class="fa fa-mobile-alt"></i>
-                        </div>
-                        <h4 class="text-white">App Development</h4>
-                        <p class="text-gray">Functional applications for grading systems, data management, and student records.</p>
+                    <div class="service-box text-center">
+                        <i class="fa fa-mobile-screen service-icon"></i>
+                        <h4>App Development</h4>
+                        <p class="text-muted">Developing functional applications for grading, record keeping, and student management.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section-padding bg-darker">
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section-padding">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="text-center mb-5">
-                        <h6 class="text-orange text-uppercase">Get in Touch</h6>
-                        <h2 class="section-title text-white">Contact Me</h2>
+                        <h5 class="text-orange">GET IN TOUCH</h5>
+                        <h2>Contact Me</h2>
                     </div>
 
-                    <!-- Notification Area -->
-                    <div id="form-message" class="alert d-none text-center" role="alert"></div>
+                    <!-- SUCCESS ALERT (Hidden by default) -->
+                    <div id="success-alert" class="alert alert-success d-none text-center">
+                        <i class="fa fa-check-circle"></i> Message sent successfully! I'll reply soon.
+                    </div>
+                    
+                    <!-- ERROR ALERT (Hidden by default) -->
+                    <div id="error-alert" class="alert alert-danger d-none text-center">
+                        <i class="fa fa-exclamation-circle"></i> Something went wrong. Please try again.
+                    </div>
 
-                    <!-- Contact Form -->
-                    <form id="contactForm" action="https://formsubmit.co/makaumusembi3@gmail.com" method="POST" class="contact-form p-4">
-                        
-                        <!-- FormSubmit Configuration -->
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_template" value="table">
+                    <div class="contact-wrapper">
+                        <!-- AJAX FORM -->
+                        <form id="contactForm" action="https://formsubmit.co/makaumusembi3@gmail.com" method="POST">
+                            
+                            <!-- Hidden Configuration -->
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
 
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <input type="text" name="name" class="form-control custom-input" placeholder="Your Name" required>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                                </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <input type="email" name="email" class="form-control custom-input" placeholder="Your Email" required>
+                            <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                            <textarea name="message" class="form-control" rows="5" placeholder="Project Details" required></textarea>
+                            
+                            <div class="text-center">
+                                <button type="submit" id="submitBtn" class="btn btn-submit">
+                                    Send Message <i class="fa fa-paper-plane ms-2"></i>
+                                </button>
                             </div>
-                        </div>
-                        <div class="mb-3">
-                            <input type="text" name="subject" class="form-control custom-input" placeholder="Subject" required>
-                        </div>
-                        <div class="mb-3">
-                            <textarea name="message" class="form-control custom-input" rows="5" placeholder="Project Details" required></textarea>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" id="submitBtn" class="btn btn-primary-custom px-5 py-2">
-                                Send Message <i class="fa fa-paper-plane ms-2"></i>
-                            </button>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer py-4 text-center bg-black">
+    <!-- FOOTER -->
+    <footer class="text-center">
         <div class="container">
-            <div class="social-icons mb-4">
-                <a href="https://www.instagram.com/onesmus8897/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/onesmus-musembi-b16705288" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://api.whatsapp.com/send/?phone=254725097312" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <div class="mb-3">
+                <a href="https://www.instagram.com/onesmus8897/" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/onesmus-musembi-b16705288" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://api.whatsapp.com/send/?phone=254725097312" class="social-link"><i class="fab fa-whatsapp"></i></a>
             </div>
-            <p class="text-gray mb-0">&copy; 2024 Onesmus Makau. All Rights Reserved.</p>
+            <p class="text-muted mb-0">&copy; 2024 Onesmus Makau. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
+    <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Custom Javascript for Form Handling -->
+    
+    <!-- JAVASCRIPT TO HANDLE FORM WITHOUT REDIRECT -->
     <script>
         const form = document.getElementById('contactForm');
-        const messageDiv = document.getElementById('form-message');
+        const successAlert = document.getElementById('success-alert');
+        const errorAlert = document.getElementById('error-alert');
         const submitBtn = document.getElementById('submitBtn');
 
         form.addEventListener('submit', function(e) {
-            e.preventDefault(); // Stop page reload
+            e.preventDefault(); // Stop the browser from leaving the page
 
-            // Change button text
-            const originalBtnText = submitBtn.innerHTML;
+            // Show loading state
+            const originalText = submitBtn.innerHTML;
             submitBtn.innerHTML = 'Sending...';
             submitBtn.disabled = true;
 
@@ -212,37 +395,23 @@
             fetch(form.action, {
                 method: 'POST',
                 body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
+                headers: { 'Accept': 'application/json' }
             })
             .then(response => {
                 if (response.ok) {
-                    // Success
-                    messageDiv.classList.remove('d-none', 'alert-danger');
-                    messageDiv.classList.add('alert-success');
-                    messageDiv.innerHTML = 'Message sent successfully! I will get back to you soon.';
-                    form.reset();
+                    successAlert.classList.remove('d-none');
+                    form.reset(); // Clear the form
+                    setTimeout(() => successAlert.classList.add('d-none'), 5000); // Hide after 5s
                 } else {
-                    // Error from server
-                    throw new Error('Server error');
+                    errorAlert.classList.remove('d-none');
                 }
             })
             .catch(error => {
-                // Network error
-                messageDiv.classList.remove('d-none', 'alert-success');
-                messageDiv.classList.add('alert-danger');
-                messageDiv.innerHTML = 'Oops! Something went wrong. Please try again later or contact me on WhatsApp.';
+                errorAlert.classList.remove('d-none');
             })
             .finally(() => {
-                // Reset button
-                submitBtn.innerHTML = originalBtnText;
+                submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
-                
-                // Hide success message after 5 seconds
-                setTimeout(() => {
-                    messageDiv.classList.add('d-none');
-                }, 8000);
             });
         });
     </script>
